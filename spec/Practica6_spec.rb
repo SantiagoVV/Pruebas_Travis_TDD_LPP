@@ -28,7 +28,7 @@ RSpec.describe "Practica6" do
   end
 
   it "Comprobacion de parametros" do
-    expect(@vaca.nombre).to eq("Vaca")
+    expect(@vaca.sacar_nombre).to eq("Vaca")
     expect(@vaca.proteinas).to eq(21.1)
     expect(@vaca.carbon).to eq(0.0)
     expect(@vaca.lipidos).to eq(3.1)
@@ -54,6 +54,11 @@ RSpec.describe "Practica6" do
   it "Cantidad energetica del alimento" do
    expect(@vaca.calculo_energetico).to eq(112.3)
   end
+
+  it "Datos de comida formateados" do
+    expect(@vaca.datos_formateados)
+  end
+
 
   it "does something useful" do
     expect(true).to eq(true)
