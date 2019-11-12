@@ -37,6 +37,12 @@ RSpec.describe "Practica6" do
 
   end
 
+  
+
+  it "Calculo proteinas" do
+   expect(@vaca.calculo_proteinas).to eq(84.4)
+  end
+
 
   it "does something useful" do
     expect(true).to eq(true)
