@@ -11,10 +11,10 @@ RSpec.describe "Practica6" do
 
   before :each do
 
-    @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 5.6)
+    @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6, 3)
   #  @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
   #  @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
-  #  @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 0.0)
+    @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3, 3)
   #  @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
   #  @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 0.0)
   #  @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
@@ -24,6 +24,7 @@ RSpec.describe "Practica6" do
   #  @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0.0)
   #  @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 0.0)
   #  @tofu = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 0.0)
+    @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3, 2)
   #  @nuez = Comida.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9, 0.0)
   end
 
@@ -58,6 +59,12 @@ RSpec.describe "Practica6" do
   it "Datos de comida formateados" do
     expect(@vaca.datos_formateados).to eq(["Vaca", 84.4, 0.0, 27.9, 50.0, 164.0])
   end
+
+  it "Cantidad energetica del hombre " do
+    expect(@vaca.calculo_energetico + @chocolate.calculo_energetico + @lentejas.calculo_energetico).to be > 3000.0
+  end
+
+
 
 
   it "does something useful" do
