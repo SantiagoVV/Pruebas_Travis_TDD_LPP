@@ -51,10 +51,9 @@ RSpec.describe "Practica6" do
    expect(@vaca.calculo_lipidos).to eq(27.9)
   end
 
-  it "Cantidad energetica del alimento"
+  it "Cantidad energetica del alimento" do
    expect(@vaca.calculo_energetico).to eq(112.3)
   end
-
 
   it "does something useful" do
     expect(true).to eq(true)
