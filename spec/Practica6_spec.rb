@@ -43,6 +43,14 @@ RSpec.describe "Practica6" do
    expect(@vaca.calculo_proteinas).to eq(84.4)
   end
 
+  it "Calculo carbohidratos" do
+   expect(@vaca.calculo_carbohidratos).to eq(0.0)
+  end
+
+  it "Calculo lipidos" do
+   expect(@vaca.calculo_lipidos).to eq(27.9)
+  end
+
 
   it "does something useful" do
     expect(true).to eq(true)
