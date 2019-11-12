@@ -56,7 +56,7 @@ RSpec.describe "Practica6" do
   end
 
   it "Datos de comida formateados" do
-    expect(@vaca.datos_formateados)
+    expect(@vaca.datos_formateados).to eq(["Vaca", 84.4, 0.0, 27.9, 50.0, 164.0])
   end
 
 
