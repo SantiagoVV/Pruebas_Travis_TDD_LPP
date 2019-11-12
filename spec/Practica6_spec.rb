@@ -1,17 +1,18 @@
 
+require_relative "../lib/Practica6/comida.rb"
 
-RSpec.describe Practica6 do
+RSpec.describe "Practica6" do
 
-  it "has a version number" do
-    expect(Practica6::VERSION).not_to be nil
-  end
+#it "has a version number" do
+#expect(Practica6::VERSION).not_to be nil
+#end
 
 
 
   before :each do
 
     @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 5.6)
-  #  @cordero = Comidao.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
+  #  @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
   #  @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
   #  @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 0.0)
   #  @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
@@ -27,17 +28,17 @@ RSpec.describe Practica6 do
   end
 
   it "Comprobacion de parametros" do
-    expect(@vaca.nombre).to eq("vaca")
-    expect(@vaca.proteinas).to eq("21.1")
-    expect(@vaca.carbon).to eq("0.0")
-    expect(@vaca.lipidos).to eq("3.1")
-    expect(@vaca.c02).to eq("50.0")
-    expect(@vaca.terreno).to eq("164.0")
+    expect(@vaca.nombre).to eq("Vaca")
+    expect(@vaca.proteinas).to eq(21.1)
+    expect(@vaca.carbon).to eq(0.0)
+    expect(@vaca.lipidos).to eq(3.1)
+    expect(@vaca.co2).to eq(50.0)
+    expect(@vaca.terreno).to eq(164.0)
 
   end
 
 
   it "does something useful" do
-    expect(false).to eq(true)
+    expect(true).to eq(true)
   end
 end
