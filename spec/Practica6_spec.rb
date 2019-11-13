@@ -61,12 +61,17 @@ RSpec.describe "Practica6" do
   end
 
   it "Terreno utilizado" do
-    expect(@vaca.calculo_terreno).to eq(984)
+    expect(@vaca.calculo_terreno).to eq(984.0)
+  end
+
+  it "CO2 emitido" do
+    expect(@vaca.calculo_co2).to eq(300.0)
   end
 
   it "Cantidad energetica del hombre " do
     expect(@vaca.calculo_energetico + @chocolate.calculo_energetico + @lentejas.calculo_energetico).to be > 3000.0
   end
+
 
 
 
