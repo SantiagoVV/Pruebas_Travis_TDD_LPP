@@ -75,6 +75,21 @@ RSpec.describe "Practica6" do
     expect(@cerveza.calculo_energetico + @cafe.calculo_energetico + @nuez.calculo_energetico).to be >= 2300.0
   end
 
+  it " Impacto ambiental mujer " do
+
+    expect((@cerveza.calculo_co2 + @cafe.calculo_co2 + @nuez.calculo_co2).round(2)).to eq(11.5)
+    expect((@cerveza.calculo_terreno + @cafe.calculo_terreno  + @nuez.calculo_terreno).round(2) ).to eq(32.5)
+
+  end
+
+  it " Impacto ambiental hombre " do
+
+    expect((@vaca.calculo_co2 + @chocolate.calculo_co2 + @lentejas.calculo_co2).round(2)).to eq(308.1)
+    expect((@vaca.calculo_terreno + @chocolate.calculo_terreno  + @lentejas.calculo_terreno).round(2) ).to eq(1004.4)
+
+  end
+
+
 
 
 
