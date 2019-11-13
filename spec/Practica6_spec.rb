@@ -41,7 +41,7 @@ RSpec.describe "Practica6" do
 
 
   it "Calculo proteinas" do
-   expect(@vaca.calculo_proteinas).to eq(84.4)
+   expect(@vaca.calculo_proteinas).to eq(506.4)
   end
 
   it "Calculo carbohidratos" do
@@ -49,15 +49,19 @@ RSpec.describe "Practica6" do
   end
 
   it "Calculo lipidos" do
-   expect(@vaca.calculo_lipidos).to eq(27.9)
+   expect(@vaca.calculo_lipidos).to eq(167.4)
   end
 
   it "Cantidad energetica del alimento" do
-   expect(@vaca.calculo_energetico).to eq(112.3)
+   expect(@vaca.calculo_energetico).to eq(673.8)
   end
 
   it "Datos de comida formateados" do
-    expect(@vaca.datos_formateados).to eq(["Vaca", 84.4, 0.0, 27.9, 50.0, 164.0])
+    expect(@vaca.datos_formateados).to eq(["Vaca", 506.4, 0.0, 167.4, 50.0, 164.0])
+  end
+
+  it "Terreno utilizado" do
+    expect(@vaca.calculo_terreno).to eq(984)
   end
 
   it "Cantidad energetica del hombre " do
