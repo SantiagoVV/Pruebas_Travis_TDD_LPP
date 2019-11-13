@@ -1,4 +1,10 @@
-# Practica6
+# Practica6 Desarrollo dirigido por pruebas ( TDD )
+
+Author: Santiago Villar Vázquez (alu0100990522@ull.edu.es)
+
+Description: Lenguajes y Paradigmas de Programacion
+
+
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Practica6`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -32,4 +38,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Practica6.
+Bug reports and pull requests are welcome on GitHub at https://github.com/SantiagoVV/Practica6.
