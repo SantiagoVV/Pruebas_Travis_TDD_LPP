@@ -1,70 +1,70 @@
 class Comida
 
 
-attr_accessor :nombre, :proteinas, :carbon, :lipidos, :co2, :terreno, :racion
+  attr_accessor :nombre, :proteinas, :carbon, :lipidos, :co2, :terreno, :racion
 
 
-def initialize (name, proteins, carbohydrates, lipids, contamination, land, ration)
+  def initialize (name, proteins, carbohydrates, lipids, contamination, land, ration)
 
-    @nombre = name
-    @proteinas = proteins
-    @carbon = carbohydrates
-    @lipidos = lipids
-    @co2 = contamination
-    @terreno = land
-    @racion = ration
-
-
-end
-
-def sacar_nombre
-
-  @nombre
-
-end
-
-def calculo_proteinas
-
-  ( ( @proteinas*4 ) *@racion  ).round(1)
-
-end
-
-def calculo_carbohidratos
-
-  ( ( @carbon*4 ) *@racion).round(1)
-
-end
+      @nombre = name
+      @proteinas = proteins
+      @carbon = carbohydrates
+      @lipidos = lipids
+      @co2 = contamination
+      @terreno = land
+      @racion = ration
 
 
-def calculo_lipidos
+  end
 
-  ( ( @lipidos*9 ) *@racion ).round(1)
+  def sacar_nombre
+
+    @nombre
+
+  end
+
+  def calculo_proteinas
+
+    ( ( @proteinas*4 ) *@racion  ).round(1)
+
+  end
+
+  def calculo_carbohidratos
+
+    ( ( @carbon*4 ) *@racion).round(1)
+
+  end
 
 
-end
+  def calculo_lipidos
 
-def calculo_energetico
+    ( ( @lipidos*9 ) *@racion ).round(1)
 
-  ( calculo_proteinas + calculo_carbohidratos + calculo_lipidos ).round(1)
 
-end
+  end
 
-def calculo_terreno
+  def calculo_energetico
 
-  ( @terreno* @racion ).round(1)
+    ( calculo_proteinas + calculo_carbohidratos + calculo_lipidos ).round(1)
 
-end
+  end
 
-def calculo_co2
+  def calculo_terreno
 
-  ( @co2 * @racion ).round(1)
+    ( @terreno* @racion ).round(1)
 
-end
+  end
 
-def datos_formateados
+  def calculo_co2
 
-  vector = [ @nombre, calculo_proteinas, calculo_carbohidratos, calculo_lipidos, @co2, @terreno, @racion ]
+    ( @co2 * @racion ).round(1)
 
-end
+  end
+
+  def datos_formateados
+
+    vector = [ @nombre, calculo_proteinas, calculo_carbohidratos, calculo_lipidos, @co2, @terreno, @racion ]
+
+  end
 
 end
