@@ -121,9 +121,9 @@ RSpec.describe "Practica7" do
 
   it "Insertar comida " do
 
-      List.insertar_head(@vaca)
-      expect(@Lista.head.valor).to eq(@vaca)
-      expect(@Lista.tail.valor).to eq(@vaca)
+      @lista.insertar_head(@vaca)
+      expect(@lista.head.valor).to eq(@vaca)
+      expect(@lista.tail.valor).to eq(@vaca)
 
   end
 
