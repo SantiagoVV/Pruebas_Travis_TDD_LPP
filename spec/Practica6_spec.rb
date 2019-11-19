@@ -129,7 +129,7 @@ RSpec.describe "Practica7" do
 
   it "Extraer primer elemento de la lista " do
     @lista.insertar_head(@vaca)
-    expect(@lista.extraer_head).to eq(@vaca)
+    expect(@lista.extraer_head.valor).to eq(@vaca)
 
   end
 
