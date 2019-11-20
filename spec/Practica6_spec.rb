@@ -109,7 +109,7 @@ RSpec.describe "Practica7" do
     @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 4)
     @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
     @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 5)
-    @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
+    @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 23)
     @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 19)
     @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 8)
     @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 14)
@@ -209,6 +209,26 @@ RSpec.describe "Practica7" do
     expect(@listaVegetariana.buscar(@leche).calculo_co2 +  @listaVegetariana.buscar(@huevos).calculo_co2).to eq(94.4)
     expect(@listaVegetariana.buscar(@leche).calculo_co2_anual +  @listaVegetariana.buscar(@huevos).calculo_co2_anual).to eq(34456.0)
     expect(@listaVegetariana.buscar(@leche).calculo_terreno +  @listaVegetariana.buscar(@huevos).calculo_terreno).to eq(214.7)
+
+
+
+  end
+
+  it " Dieta Vegetaliana " do
+
+    @listaVegetaliana = List.new()
+    @listaVegetaliana.insertar_head(@nuez)
+    @listaVegetaliana.insertar_tail(@cerveza)
+
+    expect(@listaVegetaliana.tamaño).not_to eq(0)
+    expect(@listaVegetaliana.head.valor).to eq(@nuez)
+    expect(@listaVegetaliana.tail.valor).to eq(@cerveza)
+
+    expect(@listaVegetaliana.buscar(@nuez).calculo_energetico + @listaVegetaliana.buscar(@cerveza).calculo_energetico).to be >= 2300.0
+
+    expect(@listaVegetaliana.buscar(@nuez).calculo_co2 +  @listaVegetaliana.buscar(@cerveza).calculo_co2).to eq(6.4)
+    expect(@listaVegetaliana.buscar(@nuez).calculo_co2_anual +  @listaVegetaliana.buscar(@cerveza).calculo_co2_anual).to eq(2336.0)
+    expect((@listaVegetaliana.buscar(@nuez).calculo_terreno +  @listaVegetaliana.buscar(@cerveza).calculo_terreno).round(2)).to eq(28.8)
 
 
 
