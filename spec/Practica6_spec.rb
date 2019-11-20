@@ -133,7 +133,6 @@ RSpec.describe "Practica7" do
     expect(@lista.vacia).to be false
     expect(@lista.extraer_head).equal?(@lentejas)
     expect(@lista.vacia).to be true
-    #expect(@lista.buscar(@vaca).valor).to eq(@vaca)
   end
 
 
@@ -141,29 +140,37 @@ RSpec.describe "Practica7" do
 
 
     @listaES = List.new()
-    expect(@listaES.insertar_head(@vaca)).equal?(@vaca)
-    expect(@listaES.insertar_head(@lentejas)).equal?(@lentejas)
-    expect(@listaES.insertar_head(@cordero)).equal?(@cordero)
-    expect(@listaES.tamaño).to eq(3)
-    expect(@listaES.buscar(@cordero)).equal?(@cordero)
+
+     # aux1 = Struct::Nodo.new(@pollo, nil, nil)
+     # aux2 = Struct::Nodo.new(@lentejas, nil, nil)
+     # aux3 = Struct::Nodo.new(@vaca, nil, nil)
+
+    @listaES.insertar_head(@vaca)
+    @listaES.insertar_head(@lentejas)
+    @listaES.insertar_tail(@cordero)
+  #  expect(@ListaES.to_s).to eq("Vaca , Lenteja, Cordero.")
+
+    #
+    expect(@listaES.tamaño).not_to eq(0)
+    expect(@listaES.head.valor).to eq(@lentejas)
+    expect(@listaES.tail.valor).to eq(@cordero)
 
 
+    expect(@listaES.buscar(@lentejas)).to eq(@lentejas)
+    expect(@listaES.buscar(@vaca).calculo_co2).to eq(200)
 
+    # expect(@listaES.insertar_head(@vaca)).equal?(@vaca)
+    # expect(@listaES.insertar_head(@lentejas)).equal?(@lentejas)
+    # expect(@listaES.insertar_head(@cordero)).equal?(@cordero)
+    # expect(@listaES.tamaño).to eq(3)
+    # expect(@listaES.buscar(@cordero)).equal?(@cordero)
+    # expect(@listaES.to_s).equal?("Vaca , Lenteja, Cordero.")
+    #
+    # expect(@listaES.buscar(@cordero)).to eq("Cordero")
 
-
-
-
-    # expect(@lista.extraer_head.valor).to eq(@cordero)
-    # expect(@lista.extraer_head.valor).to eq(@lentejas)
-    # expect(@lista.extraer_head.valor).to eq(@vaca)
-
-  #  expect(@listaES.buscar(@cordero)).to eq(Node)
-  #  @listaES.recorrer(1).get
-
+    #  expect((@listaES.buscar(@cordero).calculo_co2 + @listaES.buscar(@vaca).calculo_co2 + @listaES.buscar(@lentejas).calculo_co2)).to eq(308.1)
 
   end
-
-
 
 
 
