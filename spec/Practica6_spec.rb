@@ -103,11 +103,11 @@ RSpec.describe "Practica7" do
 
     @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
     @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 4)
-    @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
+    @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 8)
     @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3)
     @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 6)
     @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 4)
-    @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
+    @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 14)
     @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 5)
     @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 23)
     @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 19)
@@ -229,6 +229,26 @@ RSpec.describe "Practica7" do
     expect(@listaVegetaliana.buscar(@nuez).calculo_co2 +  @listaVegetaliana.buscar(@cerveza).calculo_co2).to eq(6.4)
     expect(@listaVegetaliana.buscar(@nuez).calculo_co2_anual +  @listaVegetaliana.buscar(@cerveza).calculo_co2_anual).to eq(2336.0)
     expect((@listaVegetaliana.buscar(@nuez).calculo_terreno +  @listaVegetaliana.buscar(@cerveza).calculo_terreno).round(2)).to eq(28.8)
+
+
+
+  end
+
+  it " Dieta Carnivora " do
+
+    @listaCarnivora = List.new()
+    @listaCarnivora.insertar_head(@pollo)
+    @listaCarnivora.insertar_tail(@camaron)
+
+    expect(@listaCarnivora.tamaño).not_to eq(0)
+    expect(@listaCarnivora.head.valor).to eq(@pollo)
+    expect(@listaCarnivora.tail.valor).to eq(@camaron)
+
+    expect(@listaCarnivora.buscar(@pollo).calculo_energetico + @listaCarnivora.buscar(@camaron).calculo_energetico).to be >= 2300.0
+
+    expect(@listaCarnivora.buscar(@pollo).calculo_co2 +  @listaCarnivora.buscar(@camaron).calculo_co2).to eq(223.8)
+    expect(@listaCarnivora.buscar(@pollo).calculo_co2_anual +  @listaCarnivora.buscar(@camaron).calculo_co2_anual).to eq(81687.0)
+    expect((@listaCarnivora.buscar(@pollo).calculo_terreno +  @listaCarnivora.buscar(@camaron).calculo_terreno).round(2)).to eq(115.4)
 
 
 
