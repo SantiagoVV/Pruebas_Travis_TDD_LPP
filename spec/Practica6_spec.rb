@@ -122,17 +122,30 @@ RSpec.describe "Practica7" do
 
   it "Insertar comida " do
 
-       expect(@lista.insertar_head(@vaca)).equal?(@vaca)
-       expect(@lista.vacia).to be false
+      expect(@lista.vacia).to be true
+      @lista.insertar_head(@cordero)
+      @lista.insertar_head(@vaca)
+      @lista.insertar_head(@pollo)
+      @lista.insertar_head(@camaron)
+      expect(@lista.vacia).to be false
 
   end
 
   it "Extraer primer elemento de la lista " do
 
-    expect(@lista.insertar_tail(@lentejas)).equal?(@lentejas)
-    expect(@lista.vacia).to be false
-    expect(@lista.extraer_head).equal?(@lentejas)
     expect(@lista.vacia).to be true
+    @lista.insertar_tail(@cordero)
+    @lista.insertar_tail(@vaca)
+    @lista.insertar_tail(@salmon)
+    @lista.insertar_tail(@nuez)
+
+    expect(@lista.tamaño).to eq(4)
+
+    @lista.extraer_head
+    expect(@lista.tamaño).to eq(3)
+
+
+
   end
 
 
@@ -238,17 +251,17 @@ RSpec.describe "Practica7" do
 
     @listaCarnivora = List.new()
     @listaCarnivora.insertar_head(@pollo)
-    @listaCarnivora.insertar_tail(@camaron)
+    @listaCarnivora.insertar_tail(@nuez)
 
     expect(@listaCarnivora.tamaño).not_to eq(0)
     expect(@listaCarnivora.head.valor).to eq(@pollo)
-    expect(@listaCarnivora.tail.valor).to eq(@camaron)
+    expect(@listaCarnivora.tail.valor).to eq(@nuez)
 
-    expect(@listaCarnivora.buscar(@pollo).calculo_energetico + @listaCarnivora.buscar(@camaron).calculo_energetico).to be >= 2300.0
+    expect(@listaCarnivora.buscar(@pollo).calculo_energetico + @listaCarnivora.buscar(@nuez).calculo_energetico).to be >= 2300.0
 
-    expect(@listaCarnivora.buscar(@pollo).calculo_co2 +  @listaCarnivora.buscar(@camaron).calculo_co2).to eq(223.8)
-    expect(@listaCarnivora.buscar(@pollo).calculo_co2_anual +  @listaCarnivora.buscar(@camaron).calculo_co2_anual).to eq(81687.0)
-    expect((@listaCarnivora.buscar(@pollo).calculo_terreno +  @listaCarnivora.buscar(@camaron).calculo_terreno).round(2)).to eq(115.4)
+    expect(@listaCarnivora.buscar(@pollo).calculo_co2 +  @listaCarnivora.buscar(@nuez).calculo_co2).to eq(80.7)
+    expect(@listaCarnivora.buscar(@pollo).calculo_co2_anual +  @listaCarnivora.buscar(@nuez).calculo_co2_anual).to eq(29455.5)
+    expect((@listaCarnivora.buscar(@pollo).calculo_terreno +  @listaCarnivora.buscar(@nuez).calculo_terreno).round(2)).to eq(123.1)
 
 
 
