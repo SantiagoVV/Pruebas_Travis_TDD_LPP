@@ -67,4 +67,10 @@ class Comida
 
   end
 
+  def calculo_co2_anual
+
+    (calculo_co2 * 365).round(1)
+
+  end
+
 end

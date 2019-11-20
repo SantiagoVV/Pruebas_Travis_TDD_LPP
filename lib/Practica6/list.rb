@@ -104,8 +104,6 @@ include Enumerable
     elsif (@tail.valor == valor)
       @tail.valor
 
-    elsif (aux.valor == valor)
-      aux.valor
 
     end
     #
@@ -118,32 +116,6 @@ include Enumerable
   end
 
 
-  def to_s
-    	os += ""
-  		if(@tamaño==1)
-  			os += @head.valor.nombre
-  		elsif (@tamaño > 1)
-  			i = 0
-  			nodo_actual = @head
-  			while i < @tamaño
-  				if (i == (@tamaño-1))
-  					if (!nodo_actual.nil?)
-  						os += nodo_actual.valor.nombre + "."
-  					end
-  				else
-  					if (!nodo_actual.nil?)
-  						os += nodo_actual.valor.nombre + ", "
-  					end
-  				end
-  				if (!nodo_actual.next.nil?)
-  					nodo_actual = nodo_actual.next
-  				end
-  				i += 1
-  			end
-  		end
-  		os
-
-  end
 
 
 

@@ -141,34 +141,42 @@ RSpec.describe "Practica7" do
 
     @listaES = List.new()
 
-     # aux1 = Struct::Nodo.new(@pollo, nil, nil)
-     # aux2 = Struct::Nodo.new(@lentejas, nil, nil)
-     # aux3 = Struct::Nodo.new(@vaca, nil, nil)
 
-    @listaES.insertar_head(@vaca)
-    @listaES.insertar_head(@lentejas)
-    @listaES.insertar_tail(@cordero)
-  #  expect(@ListaES.to_s).to eq("Vaca , Lenteja, Cordero.")
+
+    @listaES.insertar_head(@cordero)
+    @listaES.insertar_tail(@chocolate)
+
 
     #
     expect(@listaES.tamaño).not_to eq(0)
-    expect(@listaES.head.valor).to eq(@lentejas)
-    expect(@listaES.tail.valor).to eq(@cordero)
+    expect(@listaES.head.valor).to eq(@cordero)
+    expect(@listaES.tail.valor).to eq(@chocolate)
 
 
-    expect(@listaES.buscar(@lentejas)).to eq(@lentejas)
-    expect(@listaES.buscar(@vaca).calculo_co2).to eq(200)
+
+    expect(@listaES.buscar(@cordero).calculo_energetico + @listaES.buscar(@chocolate).calculo_energetico).to be >= 2300.0
+
+    expect(@listaES.buscar(@cordero).calculo_co2 +  @listaES.buscar(@chocolate).calculo_co2).to eq(86.9)
+    expect(@listaES.buscar(@cordero).calculo_co2_anual +  @listaES.buscar(@chocolate).calculo_co2_anual).to eq(31718.5)
+    expect(@listaES.buscar(@cordero).calculo_terreno +  @listaES.buscar(@chocolate).calculo_terreno).to eq(750.2)
 
     # expect(@listaES.insertar_head(@vaca)).equal?(@vaca)
     # expect(@listaES.insertar_head(@lentejas)).equal?(@lentejas)
     # expect(@listaES.insertar_head(@cordero)).equal?(@cordero)
-    # expect(@listaES.tamaño).to eq(3)
+     expect(@listaES.tamaño).to eq(2)
     # expect(@listaES.buscar(@cordero)).equal?(@cordero)
-    # expect(@listaES.to_s).equal?("Vaca , Lenteja, Cordero.")
+
     #
     # expect(@listaES.buscar(@cordero)).to eq("Cordero")
 
     #  expect((@listaES.buscar(@cordero).calculo_co2 + @listaES.buscar(@vaca).calculo_co2 + @listaES.buscar(@lentejas).calculo_co2)).to eq(308.1)
+
+  end
+
+  it " Dieta Vasca " do
+
+    @listaVasca = List.new()
+
 
   end
 
