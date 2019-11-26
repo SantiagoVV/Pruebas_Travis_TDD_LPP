@@ -115,6 +115,19 @@ include Enumerable
     # @head.valor""
   end
 
+  def each
+
+        it = @head
+
+        while it != nil
+
+            yield it.value
+            it = it.next
+        end
+
+
+    end
+
 
 
 

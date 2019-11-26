@@ -1,6 +1,6 @@
 class Comida
 
-
+include Comparable
   attr_accessor :nombre, :proteinas, :carbon, :lipidos, :co2, :terreno, :racion
 
 
@@ -15,6 +15,10 @@ class Comida
       @racion = ration
 
 
+  end
+
+  def <=>(other)
+    calculo_energetico <=> other.calculo_energetico
   end
 
   def sacar_nombre
