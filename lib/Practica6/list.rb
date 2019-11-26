@@ -117,13 +117,11 @@ include Enumerable
 
   def each
 
-        it = @head
 
-        while it != nil
 
-            yield it.value
-            it = it.next
-        end
+    yield @head.valor
+    yield @tail.valor
+
 
 
     end

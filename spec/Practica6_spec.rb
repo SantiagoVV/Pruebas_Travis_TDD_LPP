@@ -269,4 +269,51 @@ RSpec.describe "Practica7" do
 
 
 
+  #------------------------------------------------------------------------ POO: Herencia. Módulos. ----------------------------------------------------#
+describe "Practica8" do
+
+  before :each do
+
+    @lista = List.new()
+    @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
+    @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
+    @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
+    @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3)
+    @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
+    @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 0.0)
+    @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
+    @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 0.0)
+    @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
+    @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 0)
+    @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0)
+    @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 14)
+    @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3)
+    @nuez = Comida.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9, 3)
+  end
+
+  it "Modulo Comparable" do
+    expect(@vaca > @cordero).to eq(true)
+    expect(@vaca <= @cordero).to eq(false)
+    expect(@vaca == @cordero).to eq(false)
+    expect(@vaca >= @cordero).to eq(true)
+
+  end
+
+  it "Modulo Enumerable" do
+
+    @lista.insertar_head(@cordero)
+    @lista.insertar_tail(@vaca)
+    expect(@lista.max).to eq(@vaca)
+    expect(@lista.min).to eq(@cordero)
+    expect(@lista.sort).to eq([@cordero,@vaca])
+    expect(@lista.collect{|x| x.sacar_nombre}).to eq(["Cordero", "Vaca"])
+    expect(@lista.select{|x| x.sacar_nombre == "Vaca"}).to eq([@vaca])
+  end
+
+
+
+
+end
+
+
 end
