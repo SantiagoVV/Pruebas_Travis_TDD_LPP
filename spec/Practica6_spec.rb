@@ -340,8 +340,19 @@ RSpec.describe "Practica8" do
       expect(@herencia.name).to eq("Cafe con leche")
       expect(@herencia.valor_total_co2).to eq(3.6)
       expect(@herencia.estimacion_m2).to eq(9.2)
+      expect(@herencia.eficiencia).to eq(92.53)
 
     end
+
+    it " Comparable Menu " do
+      expect(@herencia == @menu).to eq(true)
+      expect(@herencia < @menu).to eq(false)
+    end
+
+
+
+
+
 
 
 
