@@ -117,6 +117,19 @@ def calorico_total
 end
 
 
+def to_s
+ os=""
+  @plato.each do |elemento|
+   os +=    "Nombre: "
+   os +=   elemento.nombre.to_s + " Proteinas: "
+   os +=   elemento.proteinas.to_s + " Lipidos: "
+   os +=   elemento.lipidos.to_s + " Carbohidratos: "
+   os +=   elemento.carbon.to_s
+ end
+ os
+end
+
+
 
 
 

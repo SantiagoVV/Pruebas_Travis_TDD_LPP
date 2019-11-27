@@ -319,10 +319,13 @@ RSpec.describe "Practica8" do
     expect(@menu.name).to eq("Cafe con leche")
     expect(@menu.calcular_proteinas).to eq(3.4)
     expect(@menu.calcular_gramos).to eq(300)
+
     expect(@menu.porcentaje_proteinas).to eq(1.13)
     expect(@menu.porcentaje_lipidos).to eq(1.07)
     expect(@menu.porcentaje_carbon).to eq(1.6)
+
     expect(@menu.calorico_total).to eq(11.4)
+    expect(@menu.to_s).to eq("Nombre: Cafe Proteinas: 0.1 Lipidos: 0.0 Carbohidratos: 0.0Nombre: Leche Proteinas: 3.3 Lipidos: 3.2 Carbohidratos: 4.8")
 
   end
 
