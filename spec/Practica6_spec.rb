@@ -1,6 +1,7 @@
 
 require_relative "../lib/Practica6/comida.rb"
 require_relative "../lib/Practica6/list.rb"
+require_relative "../lib/Practica6/menudieta.rb"
 
 RSpec.describe "Practica6" do
 
@@ -267,14 +268,16 @@ RSpec.describe "Practica7" do
 
   end
 
+end
 
 
   #------------------------------------------------------------------------ POO: Herencia. Módulos. ----------------------------------------------------#
-describe "Practica8" do
+RSpec.describe "Practica8" do
 
   before :each do
 
     @lista = List.new()
+    @menu = Menu.new("Cafe con leche")
     @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
     @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
     @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
@@ -310,10 +313,12 @@ describe "Practica8" do
     expect(@lista.select{|x| x.sacar_nombre == "Vaca"}).to eq([@vaca])
   end
 
+  it "Menu Dieta Primeras Pruebas" do
+    expect(@menu.añadir_comida(@cafe))
+    expect(@menu.añadir_comida(@leche))
+    expect(@menu.menu_nombre).to eq("Cafe con leche")
+  end
 
-
-
-end
 
 
 end
