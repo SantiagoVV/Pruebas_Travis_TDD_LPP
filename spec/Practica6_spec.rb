@@ -350,6 +350,24 @@ RSpec.describe "Practica8" do
     end
 
 
+    it "Menu español vs Vasco" do
+
+      @menuES = Menu_herencia.new("Cordero al horno de primero y postre de chocolate")
+      @menuES.añadir_comida(@cordero)
+      expect(@menuES.añadir_comida(@chocolate))
+      expect(@menuES.eficiencia).to eq(201.85)
+
+      @menuVAS = Menu_herencia.new("Tapa de queso con carne de cerdo")
+      @menuVAS.añadir_comida(@queso)
+      @menuVAS.añadir_comida(@cerdo)
+      expect(@menuVAS.eficiencia).to eq(52.0)
+
+
+      expect(@menuES == @menuVAS).to eq(false)
+      expect(@menuES.eficiencia < @menuVAS.eficiencia).to eq(false)
+
+    end
+
 
 
 
