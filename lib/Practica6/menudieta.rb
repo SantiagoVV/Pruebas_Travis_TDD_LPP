@@ -1,12 +1,12 @@
 require_relative "comida.rb"
-
+require_relative "list.rb"
 class Menu
 
 attr_accessor :name, :proteins, :carbohydrate, :lipids, :pproteins, :pcarbohydrate, :plipids, :contamination, :land, :ration
 
 def initialize (peter)
 
-    @plato = []
+    @plato = List.new()
     @name = peter
     @proteins = 0.0
     @carbohydrate = 0.0
@@ -23,7 +23,7 @@ end
 
 def añadir_comida(comida)
 
-    @plato.push(comida)
+    @plato.insertar_tail(comida)
 
 end
 

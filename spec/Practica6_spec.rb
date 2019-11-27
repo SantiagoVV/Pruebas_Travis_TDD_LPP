@@ -2,6 +2,7 @@
 require_relative "../lib/Practica6/comida.rb"
 require_relative "../lib/Practica6/list.rb"
 require_relative "../lib/Practica6/menudieta.rb"
+require_relative "../lib/Practica6/menu_herencia.rb"
 
 RSpec.describe "Practica6" do
 
@@ -278,6 +279,7 @@ RSpec.describe "Practica8" do
 
     @lista = List.new()
     @menu = Menu.new("Cafe con leche")
+    @herencia = Menu_herencia.new("Cafe con leche")
     @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
     @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
     @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
@@ -327,8 +329,19 @@ RSpec.describe "Practica8" do
     expect(@menu.calorico_total).to eq(11.4)
     expect(@menu.to_s).to eq("Nombre: Cafe Proteinas: 0.1 Lipidos: 0.0 Carbohidratos: 0.0Nombre: Leche Proteinas: 3.3 Lipidos: 3.2 Carbohidratos: 4.8")
 
+
+
   end
 
+    it "Herencia" do
+
+      expect(@herencia.añadir_comida(@cafe))
+      expect(@herencia.añadir_comida(@leche))
+      expect(@herencia.name).to eq("Cafe con leche")
+      expect(@herencia.valor_total_co2).to eq(3.6)
+      expect(@herencia.estimacion_m2).to eq(9.2)
+
+    end
 
 
 
