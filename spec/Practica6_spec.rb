@@ -289,7 +289,7 @@ RSpec.describe "Practica8" do
     @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
     @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 1)
     @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0)
-    @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 14)
+    @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 2)
     @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3)
     @nuez = Comida.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9, 3)
   end
@@ -316,9 +316,13 @@ RSpec.describe "Practica8" do
   it "Menu Dieta Primeras Pruebas" do
     expect(@menu.añadir_comida(@cafe))
     expect(@menu.añadir_comida(@leche))
-    expect(@menu.menu_nombre).to eq("Cafe con leche")
+    expect(@menu.name).to eq("Cafe con leche")
     expect(@menu.calcular_proteinas).to eq(3.4)
-    expect(@menu.calcular_gramos).to eq(1500)
+    expect(@menu.calcular_gramos).to eq(300)
+    expect(@menu.porcentaje_proteinas).to eq(1.13)
+    expect(@menu.porcentaje_lipidos).to eq(1.07)
+    expect(@menu.porcentaje_carbon).to eq(1.6)
+    expect(@menu.calorico_total).to eq(11.4)
 
   end
 
