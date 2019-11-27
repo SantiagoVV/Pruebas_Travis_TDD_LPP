@@ -287,7 +287,7 @@ RSpec.describe "Practica8" do
     @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
     @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 0.0)
     @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
-    @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 0)
+    @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 1)
     @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0)
     @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 14)
     @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3)
@@ -318,7 +318,10 @@ RSpec.describe "Practica8" do
     expect(@menu.añadir_comida(@leche))
     expect(@menu.menu_nombre).to eq("Cafe con leche")
     expect(@menu.calcular_proteinas).to eq(3.4)
+    expect(@menu.calcular_gramos).to eq(1500)
+
   end
+
 
 
 

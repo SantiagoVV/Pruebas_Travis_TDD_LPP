@@ -40,6 +40,14 @@ def calcular_proteinas
     @proteins = aux
 end
 
+def calcular_gramos
+  aux = 0
+
+  @plato.each do |algo|
+    aux = aux + (algo.racion * 100)
+    end
+    @ration = aux
+end
 
 
 end
