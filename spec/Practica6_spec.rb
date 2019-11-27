@@ -317,6 +317,7 @@ RSpec.describe "Practica8" do
     expect(@menu.añadir_comida(@cafe))
     expect(@menu.añadir_comida(@leche))
     expect(@menu.menu_nombre).to eq("Cafe con leche")
+    expect(@menu.calcular_proteinas).to eq(3.4)
   end
 
 

@@ -2,18 +2,18 @@ require_relative "comida.rb"
 
 class Menu
 
-attr_accessor :nombre, :proteinas, :carbon, :lipidos, :co2, :terreno
+attr_accessor :name, :proteins, :carbohydrate, :lipids, :contamination, :land, :ration
 
-def initialize (name)
+def initialize (peter)
 
     @plato = []
-    @nombre = name
-    @proteinas = 0.0
-    @carbon = 0.0
-    @lipidos = 0.0
-    @co2 = 0.0
-    @terreno = 0.0
-    @racion = 0.0
+    @name = peter
+    @proteins = 0.0
+    @carbohydrate = 0.0
+    @lipidss = 0.0
+    @contamination = 0.0
+    @land = 0.0
+    @ration = 0.0
 
 
 end
@@ -26,10 +26,20 @@ end
 
 def menu_nombre
 
-  @nombre
-
+  @name
 
 end
+
+def calcular_proteinas
+  aux = 0
+
+  @plato.each do |algo|
+    aux = aux + algo.proteinas
+
+    end
+    @proteins = aux
+end
+
 
 
 end
