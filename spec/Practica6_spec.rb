@@ -280,6 +280,7 @@ RSpec.describe "Practica8" do
     @lista = List.new()
     @menu = Menu.new("Cafe con leche")
     @herencia = Menu_herencia.new("Cafe con leche")
+    
     @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
     @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
     @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
@@ -357,6 +358,7 @@ RSpec.describe "Practica8" do
       expect(@menuES.añadir_comida(@chocolate))
       expect(@menuES.eficiencia).to eq(201.85)
 
+
       @menuVAS = Menu_herencia.new("Tapa de queso con carne de cerdo")
       @menuVAS.añadir_comida(@queso)
       @menuVAS.añadir_comida(@cerdo)
@@ -365,6 +367,17 @@ RSpec.describe "Practica8" do
 
       expect(@menuES == @menuVAS).to eq(false)
       expect(@menuES.eficiencia < @menuVAS.eficiencia).to eq(false)
+      expect(@menuES.calorico_total < @menuVAS.calorico_total).to eq(false)
+
+
+
+      # @listaplato = List.new()
+      # @listaplato.insertar_head(@menuES)
+      # @listaplato.insertar_tail(@menuVAS)
+      #
+      # expect(@listaplato.max).to eq(@cordero)
+
+
 
     end
 

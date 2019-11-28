@@ -4,6 +4,8 @@ class Menu
 
 attr_accessor :name, :proteins, :carbohydrate, :lipids, :pproteins, :pcarbohydrate, :plipids, :contamination, :land, :ration
 
+include Comparable
+
 def initialize (peter)
 
     @plato = List.new()
@@ -19,6 +21,10 @@ def initialize (peter)
     @ration = 0.0
 
 
+end
+
+def <=>(other)
+  calorico_total <=> other.calorico_total
 end
 
 def añadir_comida(comida)

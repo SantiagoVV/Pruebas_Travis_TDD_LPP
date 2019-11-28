@@ -4,28 +4,22 @@ require_relative "list.rb"
 class Menu_herencia < Menu
 
 include Comparable
-attr_accessor :name, :proteins, :carbohydrate, :lipids, :pproteins, :pcarbohydrate, :plipids, :contamination, :land, :ration
+
+
+attr_accessor :name
 
 def initialize (peter)
 
     super(peter)
     @plato = List.new()
     @name = peter
-    @proteins = 0.0
-    @carbohydrate = 0.0
-    @lipidss = 0.0
-    @pproteins = 0.0
-    @pcarbohydrate = 0.0
-    @plipidss = 0.0
-    @contamination = 0.0
-    @land = 0.0
-    @ration = 0.0
+
 
 
 end
 
 def <=>(other)
-  name <=> other.name
+name <=> other.name
 end
 
 def valor_total_co2
@@ -64,6 +58,9 @@ def eficiencia
 
 
 end
+
+
+
 
 
 end

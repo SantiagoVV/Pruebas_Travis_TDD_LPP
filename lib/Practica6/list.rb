@@ -118,11 +118,8 @@ include Enumerable
   def each
 
 
-
     yield @head.valor
     yield @tail.valor
-
-
 
     end
 
