@@ -491,20 +491,8 @@ RSpec.describe "Practica9" do
       end
 
     end
-      #
-      #
-      #
-      # expect(@menuDietetico1[1].huella_nutricional).to eq(2)
-      # expect(@menuDietetico1[0].huella_nutricional).to eq(1)
-      #
-      # expect(@menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional).to eq(true)
-
-    #  if expect(@menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional).to eq(true)
-
-
-
-
-    end
+    
+  end
 
 
 
