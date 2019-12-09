@@ -286,9 +286,9 @@ RSpec.describe "Practica8" do
     @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
     @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3)
     @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
-    @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 0.0)
+    @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 2)
     @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
-    @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 0.0)
+    @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 1)
     @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
     @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 1)
     @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0)
@@ -320,14 +320,14 @@ RSpec.describe "Practica8" do
     expect(@menu.añadir_comida(@cafe))
     expect(@menu.añadir_comida(@leche))
     expect(@menu.name).to eq("Cafe con leche")
-    expect(@menu.calcular_proteinas).to eq(3.4)
+    expect(@menu.calcular_proteinas).to eq(3.5)
     expect(@menu.calcular_gramos).to eq(300)
 
     expect(@menu.porcentaje_proteinas).to eq(1.13)
     expect(@menu.porcentaje_lipidos).to eq(1.07)
     expect(@menu.porcentaje_carbon).to eq(1.6)
 
-    expect(@menu.calorico_total).to eq(11.4)
+    expect(@menu.calorico_total).to eq(11.5)
     expect(@menu.to_s).to eq("Nombre: Cafe Proteinas: 0.1 Lipidos: 0.0 Carbohidratos: 0.0Nombre: Leche Proteinas: 3.3 Lipidos: 3.2 Carbohidratos: 4.8")
 
 
@@ -339,9 +339,9 @@ RSpec.describe "Practica8" do
       expect(@herencia.añadir_comida(@cafe))
       expect(@herencia.añadir_comida(@leche))
       expect(@herencia.name).to eq("Cafe con leche")
-      expect(@herencia.valor_total_co2).to eq(3.6)
+      expect(@herencia.valor_total_co2).to eq(4.0)
       expect(@herencia.estimacion_m2).to eq(9.2)
-      expect(@herencia.eficiencia).to eq(92.53)
+      expect(@herencia.eficiencia).to eq(84.2)
 
     end
 
@@ -356,13 +356,13 @@ RSpec.describe "Practica8" do
       @menuES = Menu_herencia.new("Cordero al horno de primero y postre de chocolate")
       @menuES.añadir_comida(@cordero)
       expect(@menuES.añadir_comida(@chocolate))
-      expect(@menuES.eficiencia).to eq(201.85)
+      expect(@menuES.eficiencia).to eq(231.88)
 
 
       @menuVAS = Menu_herencia.new("Tapa de queso con carne de cerdo")
       @menuVAS.añadir_comida(@queso)
       @menuVAS.añadir_comida(@cerdo)
-      expect(@menuVAS.eficiencia).to eq(52.0)
+      expect(@menuVAS.eficiencia).to eq(63.45)
 
 
       expect(@menuES == @menuVAS).to eq(false)
@@ -384,16 +384,16 @@ RSpec.describe "Practica8" do
 end
 
 #------------------------------------------------------------------------ Programación funcional. Funciones de orden superior. ----------------------------------------------------#
-RSpec.describe "Practica8" do
+RSpec.describe "Practica9" do
   before :each do
 
-    @menu1 = Menu.new("Cafe con leche")
-    @menu2 = Menu.new("Leche con cafe")
-    @menu3 = Menu.new("algo")
-    @menu4 = Menu.new("algo")
+    @menu1 = Menu_herencia.new("Cafe con leche")
+    @menu2 = Menu_herencia.new("Vaca y Cordero")
+    @menu3 = Menu_herencia.new("algo")
+    @menu4 = Menu_herencia.new("algo")
 
-    @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 6)
-    @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 0.0)
+    @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 22)
+    @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 5)
     @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
     @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3)
     @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
@@ -412,19 +412,43 @@ RSpec.describe "Practica8" do
 
   end
 
-  it "Pruebas varias" do
-
-
+  it "Pruebas iniciales" do
 
     @menu1.añadir_comida(@cafe)
     @menu1.añadir_comida(@leche)
 
-    @menu2.añadir_comida(@leche)
-    @menu2.añadir_comida(@cafe)
+    @menu2.añadir_comida(@vaca)
+    @menu2.añadir_comida(@cordero)
 
     expect(@menu1.name).to eq("Cafe con leche")
+    expect(@menu2.name).to eq("Vaca y Cordero")
 
-    expect(@menuDietetico1[1].name).to eq("Leche con cafe")
+    expect(@menuDietetico1[1].name).to eq("Vaca y Cordero")
+
+
+  end
+
+  it "Maxima huella nutricional" do
+
+    @menu1.añadir_comida(@cafe)
+    @menu1.añadir_comida(@leche)
+
+    @menu2.añadir_comida(@vaca)
+    @menu2.añadir_comida(@cordero)
+
+    expect(@menuDietetico1[1].calcular_c02_indice).to eq(2)
+    expect(@menuDietetico1[0].calcular_c02_indice).to eq(1)
+
+    expect(@menuDietetico1[1].calcular_Energia_indice).to eq(2)
+    expect(@menuDietetico1[0].calcular_Energia_indice).to eq(1)
+
+
+
+    expect(@menuDietetico1[1].huella_nutricional).to eq(2)
+    expect(@menuDietetico1[0].huella_nutricional).to eq(1)
+
+    expect(@menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional).to eq(true)
+
 
 
   end

@@ -39,7 +39,7 @@ def calcular_proteinas
   aux = 0
 
   @plato.each do |algo|
-    aux = aux + algo.proteinas
+    aux = aux + (algo.proteinas * algo.racion)
 
     end
     @proteins = aux
@@ -49,7 +49,7 @@ def calcular_lipidos
   aux = 0
 
   @plato.each do |algo|
-    aux = aux + algo.lipidos
+    aux = aux + (algo.lipidos * algo.racion)
 
     end
     @proteins = aux.round(2)
@@ -59,11 +59,14 @@ def calcular_carbon
   aux = 0
 
   @plato.each do |algo|
-    aux = aux + algo.carbon
+    aux = aux + (algo.carbon * algo.racion)
 
     end
     @proteins = aux.round(2)
 end
+
+
+
 
 def calcular_gramos
   aux = 0
@@ -135,6 +138,27 @@ def to_s
  os
 end
 
+
+
+#------------------------Practica9-------------------------#
+
+def calcular_Energia_indice
+  aux = 0
+  comprobar = calorico_total
+
+
+    if comprobar < 670
+      aux = 1
+    elsif comprobar >= 670 and comprobar <= 830
+      aux = 2
+    elsif  comprobar > 830
+      aux = 3
+
+    end
+    aux
+
+
+end
 
 
 

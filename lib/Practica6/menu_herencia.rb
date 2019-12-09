@@ -27,7 +27,7 @@ def valor_total_co2
   aux = 0
 
   @plato.each do |algo|
-    aux = aux + algo.co2
+    aux = aux + (algo.co2 * algo.racion)
 
     end
     @contamination = aux
@@ -58,6 +58,35 @@ def eficiencia
 
 
 end
+
+#------------------------Practica9-------------------------#
+def calcular_c02_indice
+  aux = 0
+
+  comprobar = valor_total_co2
+
+
+    if comprobar < 800
+      aux = 1
+    elsif comprobar >= 800 and comprobar <= 1200
+      aux = 2
+    elsif  comprobar > 1200
+      aux = 3
+
+    end
+    aux
+
+
+
+end
+
+def huella_nutricional
+
+ total = ((calcular_c02_indice + calcular_Energia_indice) / 2)
+ total
+
+end
+
 
 
 
