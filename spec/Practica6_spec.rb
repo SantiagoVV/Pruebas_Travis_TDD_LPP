@@ -407,8 +407,11 @@ RSpec.describe "Practica9" do
     @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3)
     @nuez = Comida.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9, 3)
 
-    @menuDietetico1 = [@menu1, @menu2]
-    @menuDietetico2 = [@menu3, @menu4]
+    @precioM1 = [5,40]
+    @precioM2 = [1000,2000]
+
+    @menuDietetico1 = [@menu1, @menu2, @precioM1]
+    @menuDietetico2 = [@menu3, @menu4, @precioM2]
 
   end
 
@@ -452,6 +455,56 @@ RSpec.describe "Practica9" do
 
 
   end
+
+    it "Precio" do
+      @menu1.añadir_comida(@cafe)
+      @menu1.añadir_comida(@leche)
+
+      @menu2.añadir_comida(@vaca)
+      @menu2.añadir_comida(@cordero)
+
+      aux = (@menuDietetico1[1].huella_nutricional - @menuDietetico1[0].huella_nutricional).abs
+      expect(aux).to eq(1)
+
+     if @menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional
+           if aux == 1
+            expect(@menuDietetico1[2][1]).to eq(40)
+            @menuDietetico1[2][1] = @menuDietetico1[2][1]*1.5
+            expect(@menuDietetico1[2][1]).to eq(60)
+
+          else
+
+            expect(@menuDietetico1[2][1]).to eq(40)
+            @menuDietetico1[2][1] = @menuDietetico1[2][1]*aux
+
+        end
+      else
+
+        if aux == 1
+
+         @menuDietetico1[2][0] = @menuDietetico1[2][0]*1.5
+
+       else
+
+         @menuDietetico1[2][0] = @menuDietetico1[2][0]*aux
+
+      end
+
+    end
+      #
+      #
+      #
+      # expect(@menuDietetico1[1].huella_nutricional).to eq(2)
+      # expect(@menuDietetico1[0].huella_nutricional).to eq(1)
+      #
+      # expect(@menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional).to eq(true)
+
+    #  if expect(@menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional).to eq(true)
+
+
+
+
+    end
 
 
 
