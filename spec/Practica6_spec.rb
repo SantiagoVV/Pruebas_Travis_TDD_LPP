@@ -414,6 +414,10 @@ RSpec.describe "Practica9" do
     @menuDietetico1 = [@menu1, @menu2, @precioM1]
     @menuDietetico2 = [@menu3, @menu4, @precioM2]
 
+    @menuDietetico3 = [@menu1, @menu2]
+
+
+
   end
 
   it "Pruebas iniciales" do
@@ -469,21 +473,15 @@ RSpec.describe "Practica9" do
       @menu2.añadir_comida(@vaca)
       @menu2.añadir_comida(@cordero)
 
-      precio=[]
-      precio << 5
-      precio << 20
-      plato=[]
-      plato << @menu1
-      plato << @menu2
 
-      expect(plato.max).to eq(@menu2)
+      expect(@menuDietetico3.max).to eq(@menu2)
 
-      maximo = plato.max
+      maximo = @menuDietetico3.max
       aux = maximo.huella_nutricional
 
-      final = precio.map{ |x| x * aux}
+      final = @precioM1.map{ |x| x * aux}
 
-      expect(final).to eq([5, 40])
+      expect(final).to eq([10, 80])
 
 
 
