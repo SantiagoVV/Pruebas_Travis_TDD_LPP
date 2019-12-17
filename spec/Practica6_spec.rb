@@ -346,8 +346,9 @@ RSpec.describe "Practica8" do
     end
 
     it " Comparable Menu " do
-      expect(@herencia == @menu).to eq(true)
-      expect(@herencia < @menu).to eq(false)
+      # comparable cambiado en practica 9 (name <=> other.name)
+    #  expect(@herencia == @menu).to eq(true)
+    #  expect(@herencia < @menu).to eq(false)
     end
 
 
@@ -364,8 +365,8 @@ RSpec.describe "Practica8" do
       @menuVAS.añadir_comida(@cerdo)
       expect(@menuVAS.eficiencia).to eq(63.45)
 
-
-      expect(@menuES == @menuVAS).to eq(false)
+    # comparable cambiado en practica 9 (name <=> other.name)
+    #  expect(@menuES == @menuVAS).to eq(false)
       expect(@menuES.eficiencia < @menuVAS.eficiencia).to eq(false)
       expect(@menuES.calorico_total < @menuVAS.calorico_total).to eq(false)
 
@@ -433,11 +434,14 @@ RSpec.describe "Practica9" do
 
   it "Maxima huella nutricional" do
 
+
+
     @menu1.añadir_comida(@cafe)
     @menu1.añadir_comida(@leche)
 
     @menu2.añadir_comida(@vaca)
     @menu2.añadir_comida(@cordero)
+
 
     expect(@menuDietetico1[1].calcular_c02_indice).to eq(2)
     expect(@menuDietetico1[0].calcular_c02_indice).to eq(1)
@@ -457,42 +461,67 @@ RSpec.describe "Practica9" do
   end
 
     it "Precio" do
+
+
       @menu1.añadir_comida(@cafe)
       @menu1.añadir_comida(@leche)
 
       @menu2.añadir_comida(@vaca)
       @menu2.añadir_comida(@cordero)
 
-      aux = (@menuDietetico1[1].huella_nutricional - @menuDietetico1[0].huella_nutricional).abs
-      expect(aux).to eq(1)
+      precio=[]
+      precio << 5
+      precio << 20
+      plato=[]
+      plato << @menu1
+      plato << @menu2
 
-     if @menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional
-           if aux == 1
-            expect(@menuDietetico1[2][1]).to eq(40)
-            @menuDietetico1[2][1] = @menuDietetico1[2][1]*1.5
-            expect(@menuDietetico1[2][1]).to eq(60)
+      expect(plato.max).to eq(@menu2)
 
-          else
+      maximo = plato.max
+      aux = maximo.huella_nutricional
 
-            expect(@menuDietetico1[2][1]).to eq(40)
-            @menuDietetico1[2][1] = @menuDietetico1[2][1]*aux
+      final = precio.map{ |x| x * aux}
 
-        end
-      else
+      expect(final).to eq([5, 40])
 
-        if aux == 1
 
-         @menuDietetico1[2][0] = @menuDietetico1[2][0]*1.5
 
-       else
 
-         @menuDietetico1[2][0] = @menuDietetico1[2][0]*aux
 
-      end
+                  #------------------------Obsoleto------------------------
 
-    end
-    
-  end
+  #     aux = (@menuDietetico1[1].huella_nutricional - @menuDietetico1[0].huella_nutricional).abs
+  #     expect(aux).to eq(1)
+  #
+  #    if @menuDietetico1[1].huella_nutricional > @menuDietetico1[0].huella_nutricional
+  #          if aux == 1
+  #           expect(@menuDietetico1[2][1]).to eq(40)
+  #           @menuDietetico1[2][1] = @menuDietetico1[2][1]*1.5
+  #           expect(@menuDietetico1[2][1]).to eq(60)
+  #
+  #         else
+  #
+  #           expect(@menuDietetico1[2][1]).to eq(40)
+  #           @menuDietetico1[2][1] = @menuDietetico1[2][1]*aux
+  #
+  #       end
+  #     else
+  #
+  #       if aux == 1
+  #
+  #        @menuDietetico1[2][0] = @menuDietetico1[2][0]*1.5
+  #
+  #      else
+  #
+  #        @menuDietetico1[2][0] = @menuDietetico1[2][0]*aux
+  #
+  #     end
+  #
+  #   end
+
+
+   end
 
 
 

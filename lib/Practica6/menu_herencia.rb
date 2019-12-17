@@ -19,7 +19,7 @@ def initialize (peter)
 end
 
 def <=>(other)
-name <=> other.name
+huella_nutricional <=> other.huella_nutricional
 end
 
 def valor_total_co2
