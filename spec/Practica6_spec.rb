@@ -3,6 +3,8 @@ require_relative "../lib/Practica6/comida.rb"
 require_relative "../lib/Practica6/list.rb"
 require_relative "../lib/Practica6/menudieta.rb"
 require_relative "../lib/Practica6/menu_herencia.rb"
+require_relative "../lib/Practica6/platodsl.rb"
+require_relative "../lib/Practica6/menu_dsl.rb"
 
 RSpec.describe "Practica6" do
 
@@ -476,9 +478,13 @@ RSpec.describe "Practica9" do
 
       expect(@menuDietetico3.max).to eq(@menu2)
 
+      #Selecciona el menu mayor
       maximo = @menuDietetico3.max
+
+      #Valor maximo de la huella
       aux = maximo.huella_nutricional
 
+      #aumenta el precio del array
       final = @precioM1.map{ |x| x * aux}
 
       expect(final).to eq([10, 80])
@@ -521,6 +527,48 @@ RSpec.describe "Practica9" do
 
    end
 
+ end
+   RSpec.describe "Practica10" do
 
+     # @vaca = Comida.new("Vaca", 21.1, 0.0, 3.1, 50.0, 164.0, 22)
+     # @cordero = Comida.new("Cordero", 18.0, 0.0, 17.0, 20.0, 185.0, 5)
+     # @camaron = Comida.new("Camaron", 17.6, 1.5, 0.6, 18.0, 2.0, 0.0)
+     # @chocolate = Comida.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4, 3)
+     # @salmon = Comida.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7, 0.0)
+     # @cerdo = Comida.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0, 0.0)
+     # @pollo = Comida.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1, 0.0)
+     # @queso = Comida.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0, 0.0)
+     # @cerveza = Comida.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22, 21)
+     # @leche = Comida.new("Leche", 3.3, 4.8, 3.2, 3.2, 8.9, 1)
+     # @huevos = Comida.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7, 0)
+     # @cafe = Comida.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3, 2)
+     # @lentejas = Comida.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4, 3)
+     # @nuez = Comida.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9, 3)
+
+
+     menu = Plato_DSL.new("Menu_1") do
+
+      plato1 :descripcion => "Vaca",
+      :proteinas => 21.1,
+      :carbohidratos => 0.0,
+      :lipidos => 3.1,
+      :contaminacion => 50.0,
+      :terreno => 164.0,
+      :racion => 22,
+      :precio => 15
+
+      plato2 :descripcion => "Cordero",
+      :proteinas => 18.0,
+      :carbohidratos => 0.0,
+      :lipidos => 17.0,
+      :contaminacion => 20.0,
+      :terreno => 185.0,
+      :racion => 5,
+      :precio => 20
 
 end
+      it "Mostrar por pantalla" do
+        expect(menu.to_s).to eq("Plato_2\n Cordero\n 18.0\n 0.0\n 17.0\n 20.0\n 185.0\n 5\n 20")
+      end
+
+     end
