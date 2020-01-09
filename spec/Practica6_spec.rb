@@ -4,7 +4,7 @@ require_relative "../lib/Practica6/list.rb"
 require_relative "../lib/Practica6/menudieta.rb"
 require_relative "../lib/Practica6/menu_herencia.rb"
 require_relative "../lib/Practica6/platodsl.rb"
-require_relative "../lib/Practica6/menu_dsl.rb"
+
 
 RSpec.describe "Practica6" do
 
