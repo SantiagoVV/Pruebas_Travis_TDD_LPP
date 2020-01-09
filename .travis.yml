@@ -6,4 +6,5 @@ rvm:
   - 2.6.3
 before_install: gem install bundler -v 1.17.2
 
-gem install-jdk.sh 2019-07-06
+dist: trusty
+install-jdk.sh 2019-07-06
